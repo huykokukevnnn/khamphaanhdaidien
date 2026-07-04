@@ -755,20 +755,22 @@
             state.gender = g;
             
             els.navAvatar.src = defaultAvatars[g];
-            els.menuAvatarThumb.src = defaultAvatars[g];
             els.sidebarAvatar.src = defaultAvatars[g];
+            if (els.profilePageAvatar) els.profilePageAvatar.src = defaultAvatars[g];
+            if (els.profilePostInputAvatar) els.profilePostInputAvatar.src = defaultAvatars[g];
             
             generateLibraryGrid(g);
             
             els.screenGender.classList.add('fade-out');
             setTimeout(() => {
                 els.screenGender.classList.add('hidden');
+                els.screenGender.classList.remove('flex');
                 els.screenFeed.classList.remove('hidden');
                 els.screenFeed.classList.add('fade-in');
                 
                 // Show mission panel and tooltip
                 els.missionPanel.classList.remove('hidden');
-                els.navTooltip.classList.remove('hidden');
+                if(els.navTooltip) els.navTooltip.classList.remove('hidden');
             }, 400);
         }
 
