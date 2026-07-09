@@ -865,10 +865,10 @@
         function closeAvatarLibrary() {
             els.modalLibrary.classList.add('hidden');
             els.modalLibrary.classList.remove('flex');
-            if (state.selectedAvatarObj && !state.isSimulationRunning) {
+            if (state.selectedAvatarObj) {
+                // Always navigate back to feed so the post simulation is visible
+                goToFeed();
                 startPostSimulation();
-            } else if (state.selectedAvatarObj && state.isSimulationRunning) {
-                startPostSimulation(); // Re-trigger simulation for new avatar
             }
         }
         function goToProfile() {
